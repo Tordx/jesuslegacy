@@ -42,7 +42,7 @@ const GallerySection = ({ images }: Props) => {
           {[...images, ...images].map((src, i) => (
             <div
               key={i}
-              className="relative w-75 h-125 shrink-0 transform  overflow-hidden"
+              className="relative w-75 h-125 shrink-0 transform  overflow-hidden rounded-lg transition-all duration-500 hover:-translate-y-10 hover:rounded-2xl"
             >
               <Image
                 src={`${NEXT_PUBLIC_SUPABASE_STORAGE_URL}/${src.path}`}
