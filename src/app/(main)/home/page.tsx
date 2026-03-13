@@ -1,10 +1,9 @@
-import React from 'react'
-import HomeClient from './client'
+import HomeClient from "./client";
+import { HomeServices } from "@/app/services/home-services";
 
-type Props = {}
-
-function page({}: Props) {
-  return <HomeClient />;
+async function page() {
+  const data = await HomeServices.getGallery();
+  return <HomeClient data={data.data} />;
 }
 
-export default page
+export default page;

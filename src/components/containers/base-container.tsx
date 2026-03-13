@@ -1,11 +1,13 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+  children: React.ReactNode;
+}
 
-const BaseContainer = (props: Props) => {
+const BaseContainer = ({children}: Props) => {
   return (
-    <div className='flex w-full h-screen'>
-      
+    <div className='flex flex-col w-full overflow-y-scroll'>
+      {children}
     </div>
   )
 }

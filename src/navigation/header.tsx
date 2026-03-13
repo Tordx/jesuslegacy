@@ -12,14 +12,32 @@
 
 "use client";
 import NavButton from "@/components/buttons/nav-button";
-import { images, nav_items } from "@/constants";
-import Image from "next/image";
+import { nav_items } from "@/constants";
+import { useAnimation } from "framer-motion";
 import { redirect } from "next/navigation"; 
-type Props = {};
+import React from "react";
+import {motion} from 'framer-motion';
 
-function Header({}: Props) {
+function Header() {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const controls = useAnimation();
+
+  React.useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  React.useEffect(() => {
+    controls.start({
+      backdropFilter: isScrolled ? "blur(16px)" : "",
+      backgroundColor:
+        isScrolled ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0)",
+      transition: { duration: 0.6, ease: "easeOut" },
+    });
+  }, [isScrolled, controls]);
   return (
-    <header className="fixed top-0 w-full h-18 z-30">
+    <motion.header className="fixed top-0 w-full h-20 z-30" animate={controls}>
       <nav className="w-full h-full flex items-center justify-end gap-6 p-10">
         {nav_items.map((item) => {
           return (
@@ -40,7 +58,7 @@ function Header({}: Props) {
             />
           </div> */}
       </nav>
-    </header>
+    </motion.header>
   );
 }
 
