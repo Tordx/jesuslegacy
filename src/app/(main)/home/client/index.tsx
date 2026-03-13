@@ -1,5 +1,5 @@
+'use client';
 import ImageContainer from "@/components/containers/image-container";
-import React from "react";
 import HeroSection from "./sections/hero-section";
 import BaseContainer from "@/components/containers/base-container";
 import ChurchSummarySection from "./sections/church-summary-section";
