@@ -6,37 +6,54 @@ import { GetGalleryData } from "../index.type";
 
 type Props = {
   images: GetGalleryData[];
-}
-const GallerySection = ({images}: Props) => {
-
-  const NEXT_PUBLIC_SUPABASE_STORAGE_URL = process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL
+};
+const GallerySection = ({ images }: Props) => {
+  const NEXT_PUBLIC_SUPABASE_STORAGE_URL =
+    process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL;
   return (
     <div className="w-full overflow-hidden pt-4 pb-21 bg-black">
-      <div className="text-4xl text-amber-100 font-bold p-8">GALLERY</div>
       <motion.div
-        className="flex gap-4"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 20,
-          ease: "linear",
-        }}
+        initial={{ y: 150, opacity: 0 }}
+        animate={{ y: 0, opacity: 100 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="text-4xl text-amber-100 font-bold p-8"
       >
-        {[...images, ...images].map((src, i) => (
-          <div
-            key={i}
-            className="relative w-75 h-125 shrink-0 transform  overflow-hidden"
-          >
-            <Image
-              src={`${NEXT_PUBLIC_SUPABASE_STORAGE_URL}/${src.path}`}
-              alt={`carousel-${i}`}
-              fill
-              className="object-cover"
-              unoptimized
-            />
-          </div>
-        ))}
+        GALLERY
+      </motion.div>
+      <motion.div
+        initial={{ y: 150, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        whileInView={{ opacity: 2 }}
+        viewport={{ once: true, amount: 1 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+      >
+        <motion.div
+          className="flex gap-4"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 20,
+            ease: "linear",
+          }}
+        >
+          {[...images, ...images].map((src, i) => (
+            <div
+              key={i}
+              className="relative w-75 h-125 shrink-0 transform  overflow-hidden"
+            >
+              <Image
+                src={`${NEXT_PUBLIC_SUPABASE_STORAGE_URL}/${src.path}`}
+                alt={`carousel-${i}`}
+                fill
+                className="object-cover"
+                unoptimized
+              />
+            </div>
+          ))}
+        </motion.div>
       </motion.div>
     </div>
   );
