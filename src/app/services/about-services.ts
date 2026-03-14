@@ -10,16 +10,16 @@
  * All rights reserved.
  */
 
-import api from "@/axios"
+import api from "@/axios";
+import { AboutProps } from "@/types";
 
-export default class HomeServices {
-  
-  static async getGallery() {
+export default class AboutServices {
+  static async getAll() {
+    const response = await api.get('/about',{
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
 
-    const response = await api.get('/home/getGallery', {
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    return response.data
+    return response.data as AboutProps;
   }
 }

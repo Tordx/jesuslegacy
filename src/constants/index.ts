@@ -12,33 +12,45 @@
 import FacebookIcon from "@/app/assets/icons/facebook-icon";
 import TiktokIcon from "@/app/assets/icons/tiktok-icon";
 import YoutubeIcon from "@/app/assets/icons/youtube-icon";
+import { label } from "framer-motion/client";
+import path from "path";
 
 export const nav_items = [
   {
     id: 0,
+    label: 'home',
+    path: '/home',
+  },
+  {
+    id: 1,
     label: 'about',
     path: '/about',
 
   },
   {
-    id: 1,
+    id: 2,
     label: 'ministries',
     path: '/ministries',
 
   },
   {
-    id: 2,
+    id: 3,
     label: 'give',
     path: '/give',
 
   },
   {
-    id: 3,
+    id: 4,
+    label: 'activities',
+    path: 'activities'
+  },
+  {
+    id: 5,
     label: 'connect',
     path: '/connect',
   },
   {
-    id: 4,
+    id: 6,
     label: 'watch',
     path: '/watch',
   },

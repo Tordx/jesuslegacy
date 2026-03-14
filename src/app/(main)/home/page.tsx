@@ -11,7 +11,7 @@
  */
 
 import HomeClient from "./client";
-import { HomeServices } from "@/app/services/home-services";
+import HomeServices  from "@/app/services/home-services";
 export const dynamic = "force-dynamic";
 
 async function Home() {

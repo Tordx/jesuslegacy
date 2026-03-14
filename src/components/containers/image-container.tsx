@@ -9,20 +9,25 @@
  *
  * All rights reserved.
  */
-
+import { useIsMobile } from '@/hooks/use-is-mobile';
 import React from 'react'
 
 type Props = {
   children: React.ReactNode;
+  backgroundImage: string;
+  cover?: string;
+  position?: string;
 }
 
-const ImageContainer = ({children}: Props) => {
+const ImageContainer = ({children, backgroundImage, cover = "cover", position = 'center'}: Props) => {
+  const isMobile = useIsMobile();
   return (
     <div className='flex w-full h-screen justify-center items-center'
       style={{
-          backgroundImage: "url('assets/cover.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage,
+          backgroundSize: cover,
+          backgroundPosition: position,
+          backgroundRepeat: 'no-repeat'
         }}
     >{children}</div>
   )

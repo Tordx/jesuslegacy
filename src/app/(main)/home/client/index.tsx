@@ -26,7 +26,7 @@ type Props = {
 function HomeClient({ data }: Props) {
   return (
     <BaseContainer>
-      <ImageContainer>
+      <ImageContainer backgroundImage="url('assets/cover.jpg')">
         <HeroSection />
       </ImageContainer>
       <ChurchSummarySection />

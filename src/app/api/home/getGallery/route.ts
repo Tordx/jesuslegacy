@@ -27,7 +27,7 @@ export async function GET() {
 		}
 
 		if (!data) {
-			return NextResponse.json({ status: false, message: 'About not found' }, { status: 404 });
+			return NextResponse.json({ status: false, message: 'Gallery not found' }, { status: 404 });
 		}
 
 		return NextResponse.json({ status: true, data }, { status: 200 });

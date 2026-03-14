@@ -38,15 +38,15 @@ function Footer() {
   };
 
   return (
-    <footer ref={ref} className="h-auto w-full flex flex-col bg-gray-800">
+    <footer ref={ref} className="h-auto w-full flex flex-col bg-gray-800 z-30">
       <motion.div
         id="footer_links"
-        className="w-full h-full flex items-start justify-between p-10 bg-gray-800"
+        className="w-full h-full flex flex-col xl:flex-row  items-center xl:items-start justify-between p-6 xl:p-10 gap-10 bg-gray-800"
         initial="hidden"
         animate={controls}
         variants={variants}
       >
-        <div className="w-1/4 flex items-center justify-center">
+        <div className="w-full xl:w-1/4 flex items-center justify-center">
           <Image
             className="invert"
             src={images.app_logo}
@@ -55,7 +55,7 @@ function Footer() {
             height={250}
           />
         </div>
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 w-1/3 min-h-62.5">
+        <div className="flex flex-col xl:flex-row items-start justify-start xl:items-center xl:justify-between gap-6 w-full px-4 xl:px-0 xl:w-1/3 xl:min-h-62.5">
           {footer_elements.social_links.map((link, index) => {
             const Icon = link.icon;
 
@@ -73,7 +73,7 @@ function Footer() {
             );
           })}
         </div>
-        <div className="w-1/3 flex justify-center items-start gap-12">
+        <div className="w-full px-4 xl:px-0 xl:w-1/3 flex flex-col md:flex-row justify-start xl:justify-center items-start gap-12">
           {footer_elements.footer_links.map(({ header, links }) => (
             <div key={header}>
               <h4 className="font-bold text-xl text-white mb-4">{header}</h4>
@@ -102,7 +102,7 @@ function Footer() {
 
       <motion.div
         id="footer_copyright"
-        className="flex flex-row bg-gray-500 w-full h-full items-center justify-between text-xs font-medium text-gray-50 p-10"
+        className="flex gap-6 xl:gap-0 flex-col xl:flex-row bg-gray-500 w-full h-full items-center justify-between text-xs font-medium text-gray-50 p-10"
         initial="hidden"
         animate={controls}
         variants={variants}

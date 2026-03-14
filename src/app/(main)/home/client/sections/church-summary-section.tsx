@@ -20,7 +20,7 @@ const ChurchSummarySection = () => {
     <section className="w-full py-16 px-6 flex justify-center max-h-75">
       <div className="flex max-w-6xl flex-col md:flex-row items-center gap-10">
         <motion.div
-          className="flex justify-center md:w-1/4"
+          className="hidden md:flex justify-center  md:w-1/4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 1 }}
@@ -31,13 +31,13 @@ const ChurchSummarySection = () => {
             alt="Jesus Legacy Church Logo"
             width={250}
             height={250}
-            className="object-contain filter hue-rotate-90 saturate-200"
+            className="object-contain"
             priority
           />
         </motion.div>
 
         <motion.div
-          className="flex flex-col gap-4 text-center md:text-left w-full leading-12 text-3xl font-medium"
+          className="flex flex-col gap-4 text-center md:text-left w-full md:leading-12 text-lg md:text-3xl font-medium"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}

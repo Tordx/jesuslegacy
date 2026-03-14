@@ -10,16 +10,12 @@
  * All rights reserved.
  */
 
-import api from "@/axios"
+import AboutServices from "@/app/services/about-services";
+import AboutClient from "./client";
 
-export default class HomeServices {
-  
-  static async getGallery() {
-
-    const response = await api.get('/home/getGallery', {
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    return response.data
-  }
+async function About() {
+  const data = await AboutServices.getAll();
+  return <AboutClient {...data} />
 }
+
+export default About;

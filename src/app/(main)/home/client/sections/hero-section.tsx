@@ -16,7 +16,7 @@ import HeroButton from '@/components/buttons/hero-button'
 
 const HeroSection = () => {
   return (
-    <section className='flex w-full h-full items-center justify-between max-w-4/5'>
+    <section className='hidden md:flex w-full h-full items-center justify-between max-w-4/5'>
         <HeroButton  onClick={() => {}} label="our purpose"/>
         <HeroButton  onClick={() => {}} label="our locations"/>
     </section>
