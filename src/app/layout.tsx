@@ -13,7 +13,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-
+import { Analytics } from "@vercel/analytics/next"
 const montserratSans = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
@@ -36,6 +36,8 @@ export default function RootLayout({
       >
         {children}
       </body>
+      <Analytics />
+
     </html>
   );
 }
