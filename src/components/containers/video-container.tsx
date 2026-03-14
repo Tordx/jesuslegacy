@@ -12,8 +12,7 @@
 
 "use client";
 
-import { useIsMobile } from '@/hooks/use-is-mobile';
-import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
+import { useScroll, useTransform, motion } from 'framer-motion';
 import React, { useRef } from 'react';
 
 type Props = {
@@ -35,7 +34,6 @@ const VideoContainer = ({
   loop = true,
   muted = true,
 }: Props) => {
-  const isMobile = useIsMobile();
   const ref = useRef<HTMLDivElement>(null);
 
   // Initialize scrollYProgress safely; useScroll can accept null refs

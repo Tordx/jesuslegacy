@@ -9,7 +9,6 @@
  *
  * All rights reserved.
  */
-import { useIsMobile } from '@/hooks/use-is-mobile';
 import React from 'react'
 
 type Props = {
@@ -20,7 +19,6 @@ type Props = {
 }
 
 const ImageContainer = ({children, backgroundImage, cover = "cover", position = 'center'}: Props) => {
-  const isMobile = useIsMobile();
   return (
     <div className='flex w-full h-screen justify-center items-center'
       style={{

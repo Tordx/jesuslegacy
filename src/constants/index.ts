@@ -12,8 +12,6 @@
 import FacebookIcon from "@/app/assets/icons/facebook-icon";
 import TiktokIcon from "@/app/assets/icons/tiktok-icon";
 import YoutubeIcon from "@/app/assets/icons/youtube-icon";
-import { label } from "framer-motion/client";
-import path from "path";
 
 export const nav_items = [
   {
