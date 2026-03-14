@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import AboutClient from "./client";
 import { AboutSectionData } from "./index.types";
-import VideoContainer from "@/components/containers/video-container";
 // Mock all child components to avoid full DOM complexity
 jest.mock("./client/sections/hero-section", () => ({
   __esModule: true,

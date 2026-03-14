@@ -44,3 +44,7 @@ next-env.d.ts
 
 sonar.sh
 .scannerwork
+
+#vscode
+
+.vscode
