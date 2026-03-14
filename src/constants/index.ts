@@ -12,7 +12,7 @@
 import FacebookIcon from "@/app/assets/icons/facebook-icon";
 import TiktokIcon from "@/app/assets/icons/tiktok-icon";
 import YoutubeIcon from "@/app/assets/icons/youtube-icon";
-import { NavItems } from "@/types";
+import { NavItems } from "@/navigation/navigation.types";
 
 export const nav_items: NavItems[] = [
   {

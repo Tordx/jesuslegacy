@@ -1,16 +1,15 @@
 "use client";
 import NavButton from "@/components/buttons/nav-button";
-import { nav_items } from "@/constants";
-import { NavItems } from "@/types";
 import { useAnimation, motion } from "framer-motion";
 import { redirect, usePathname } from "next/navigation";
 import React from "react";
+import { NavItems } from "./navigation.types";
 
 type Props = {
   menu: NavItems[];
 };
 
-function WebHeader(props: Props) {
+function WebHeader(props: Readonly<Props>) {
   const { menu } = props;
   const [isScrolled, setIsScrolled] = React.useState(false);
   const controls = useAnimation();

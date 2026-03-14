@@ -56,12 +56,12 @@ function Footer() {
           />
         </div>
         <div className="flex flex-col xl:flex-row items-start justify-start xl:items-center xl:justify-between gap-6 w-full px-4 xl:px-0 xl:w-1/3 xl:min-h-62.5">
-          {footer_elements.social_links.map((link, index) => {
+          {footer_elements.social_links.map((link) => {
             const Icon = link.icon;
 
             return (
               <Link
-                key={index}
+                key={link.label}
                 href={link.path}
                 target="_blank"
                 rel="noopener noreferrer"

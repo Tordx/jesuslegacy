@@ -16,14 +16,14 @@ import HeroSection from "./sections/hero-section";
 import BaseContainer from "@/components/containers/base-container";
 import ChurchSummarySection from "./sections/church-summary-section";
 import GallerySection from "./sections/gallery-section";
-import { GetGalleryData } from "./index.type";
+import { GetGalleryData } from "../index.types";
 import BannerSection from "./sections/banner-section";
 
 type Props = {
   data: GetGalleryData[];
 };
 
-function HomeClient({ data }: Props) {
+function HomeClient({ data }: Readonly<Props>) {
   return (
     <BaseContainer>
       <ImageContainer backgroundImage="url('assets/cover.jpg')">

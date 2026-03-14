@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { GetGalleryData } from "../index.type";
+import { GetGalleryData } from "../../index.types";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 
 type Props = {
@@ -45,7 +45,7 @@ const GallerySection = ({ images }: Props) => {
         >
           {loopImages.map((src, i) => (
             <div
-              key={i}
+              key={src.id + i}
               className="relative w-75 h-125 shrink-0 overflow-hidden rounded-lg transition-all duration-500 hover:-translate-y-10 hover:rounded-2xl"
             >
               <Image

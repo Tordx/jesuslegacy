@@ -18,7 +18,7 @@ type Props = {
 
 const BaseContainer = ({children}: Props) => {
   return (
-    <div className='flex flex-col w-full overflow-y-scroll'>
+    <div data-testid="base-container" className='flex flex-col w-full overflow-y-scroll'>
       {children}
     </div>
   )

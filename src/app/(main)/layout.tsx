@@ -4,8 +4,6 @@ import { useIsMobile } from "@/hooks/use-is-mobile";
 import Footer from "@/navigation/footer";
 import WebHeader from "@/navigation/web-header";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
 import MobileDrawer from "@/navigation/mobile-drawer";
 import { nav_items } from "@/constants";
 import MenuButton from "@/components/buttons/menu-button";
@@ -14,7 +12,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-function Layout({ children }: Props) {
+function Layout({ children }: Readonly<Props>) {
   const mobile = useIsMobile();
   const [drawerOpen, setDrawerOpen] = useState(false);
 

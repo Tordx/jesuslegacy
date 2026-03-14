@@ -12,8 +12,9 @@
 
 import React from "react";
 import {motion} from 'framer-motion';
-import { NavItems } from "@/types";
 import Link from "next/link";
+import { NavItems } from "./navigation.types";
+
 
 type Props = {
   drawerOpen: boolean;

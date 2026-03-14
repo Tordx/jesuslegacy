@@ -46,7 +46,7 @@ const VideoContainer = ({
   const y = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   return (
-    <div ref={ref} className='relative w-full h-screen overflow-hidden'>
+    <div data-testid="video-container" ref={ref} className='relative w-full h-screen overflow-hidden'>
       {/* Fixed video always centered in viewport */}
       <motion.video
         className='fixed top-1/2 left-1/2 w-full h-250 max-w-none max-h-none -translate-x-1/2 -translate-y-1/2 object-cover'

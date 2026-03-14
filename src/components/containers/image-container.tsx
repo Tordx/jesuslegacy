@@ -20,7 +20,7 @@ type Props = {
 
 const ImageContainer = ({children, backgroundImage, cover = "cover", position = 'center'}: Props) => {
   return (
-    <div className='flex w-full h-screen justify-center items-center'
+    <div data-testid="image-container"className='flex w-full h-screen justify-center items-center'
       style={{
           backgroundImage,
           backgroundSize: cover,

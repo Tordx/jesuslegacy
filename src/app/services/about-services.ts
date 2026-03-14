@@ -11,7 +11,7 @@
  */
 
 import api from "@/axios";
-import { AboutProps } from "@/types";
+import { AboutProps } from "../(main)/about/index.types";
 
 export default class AboutServices {
   static async getAll() {
