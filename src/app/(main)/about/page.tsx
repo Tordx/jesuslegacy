@@ -18,14 +18,14 @@ export const dynamic = 'force-dynamic';
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Jesus Legacy Church to All Generations - About";
   const description = "Know more about us, who we are, and what we do";
-  const image = "https://jesus-legacy.vercel.app/assets/god-loves-you.jpg";
+  const image = "https://jesuslegacy.vercel.app/assets/god-loves-you.jpg";
   return {
     title,
     description,
     openGraph: {
       title,
       description,
-      url: `https://jesus-legacy.vercel.app/about`,
+      url: `https://jesuslegacy.vercel.app/about`,
       type: "website",
       images: [
         {
