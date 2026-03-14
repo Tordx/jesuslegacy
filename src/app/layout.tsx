@@ -13,7 +13,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const montserratSans = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
@@ -31,13 +32,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${montserratSans.variable} antialiased`}
-      >
+      <body className={`${montserratSans.variable} antialiased`}>
         {children}
       </body>
       <Analytics />
-
+      <SpeedInsights />
     </html>
   );
 }
