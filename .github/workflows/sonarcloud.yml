@@ -57,7 +57,6 @@ jobs:
               -Dsonar.organization=tordx
               -Dsonar.sources=src
               -Dsonar.tests=src
-              -Dsonar.host.url=https://sonarcloud.io
               -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info
               -Dsonar.exclusions=src/app/*.ico,src/app/*.png,src/app/*.svg
               -Dsonar.test.inclusions=**/*.test.tsx,**/*.spec.tsx
