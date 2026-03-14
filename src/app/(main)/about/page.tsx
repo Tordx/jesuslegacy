@@ -12,6 +12,7 @@
 
 import AboutServices from "@/app/services/about-services";
 import AboutClient from "./client";
+export const dynamic = 'force-dynamic';
 
 async function About() {
   const data = await AboutServices.getAll();
