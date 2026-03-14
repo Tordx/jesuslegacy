@@ -36,7 +36,14 @@ function AboutClient(props: AboutProps) {
               <span className="text-5xl">Welcome to</span>
               <span>Jesus Legacy Church</span>
             </div>
-            <Button>Learn more about us</Button>
+            <Button
+              onClick={() => {
+                const section = document.getElementById("what-we-do");
+                section?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Learn more about us
+            </Button>
           </div>
         </VideoContainer>
         {/* Spacer to ensure content below is not hidden */}
@@ -46,6 +53,7 @@ function AboutClient(props: AboutProps) {
       {/* Alternating sections */}
       <div className="w-full px-4 md:px-20 mx-auto py-20 flex flex-col gap-20 justify-center items-center bg-white z-10">
         <motion.div
+          id="what-we-do"
           initial={{ y: 150, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 1 }}
