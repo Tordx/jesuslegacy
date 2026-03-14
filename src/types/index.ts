@@ -9,3 +9,9 @@ export type AboutProps = {
   data: AboutSectionData[],
   status: boolean;
 };
+
+export interface NavItems {
+  id: number;
+  label: string;
+  path: string;
+}

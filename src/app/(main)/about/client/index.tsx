@@ -39,7 +39,14 @@ function AboutClient(props: AboutProps) {
             <Button
               onClick={() => {
                 const section = document.getElementById("what-we-do");
-                section?.scrollIntoView({ behavior: "smooth" });
+                if (section) {
+                  const yOffset = -80;
+                  const y =
+                    section.getBoundingClientRect().top +
+                    window.pageYOffset +
+                    yOffset;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                }
               }}
             >
               Learn more about us
@@ -51,9 +58,11 @@ function AboutClient(props: AboutProps) {
       </div>
 
       {/* Alternating sections */}
-      <div className="w-full px-4 md:px-20 mx-auto py-20 flex flex-col gap-20 justify-center items-center bg-white z-10">
+      <div
+        id="what-we-do"
+        className="w-full px-4 md:px-20 mx-auto py-20 flex flex-col gap-20 justify-center items-center bg-white z-10"
+      >
         <motion.div
-          id="what-we-do"
           initial={{ y: 150, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 1 }}

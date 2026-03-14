@@ -1,11 +1,17 @@
 "use client";
 import NavButton from "@/components/buttons/nav-button";
 import { nav_items } from "@/constants";
+import { NavItems } from "@/types";
 import { useAnimation, motion } from "framer-motion";
 import { redirect, usePathname } from "next/navigation";
 import React from "react";
 
-function WebHeader() {
+type Props = {
+  menu: NavItems[];
+};
+
+function WebHeader(props: Props) {
+  const { menu } = props;
   const [isScrolled, setIsScrolled] = React.useState(false);
   const controls = useAnimation();
   const pathname = usePathname(); // get current route
@@ -27,10 +33,10 @@ function WebHeader() {
   return (
     <motion.header className="fixed top-0 w-full h-20 z-30" animate={controls}>
       <nav className="w-full h-full flex items-center justify-end gap-6 p-10">
-        {nav_items.map((item) => {
+        {menu.map((item) => {
           if (pathname === "/home" && item.id === 0) return null;
 
-          if (item.id === 0 && (pathname === "/home")) {
+          if (item.id === 0 && pathname === "/home") {
             return (
               <motion.div
                 key={item.id}
