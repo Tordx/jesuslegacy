@@ -10,8 +10,38 @@
  * All rights reserved.
  */
 
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
+export async function generateMetadata(): Promise<Metadata> {
+  const title = "Jesus Legacy Church to All Generations";
+  const description = "Loving God, Loving People, Making Desciples";
+  const image = "https://jesus-legacy.vercel.app/assets/cover.jpg";
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://jesus-legacy.vercel.app/home`,
+      type: "website",
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: `jesus legacy church banner`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+  };
+}
 export default function Home() {
-  redirect('/home')
+  redirect("/home");
 }
