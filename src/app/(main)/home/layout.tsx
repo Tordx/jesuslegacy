@@ -1,3 +1,4 @@
+import Footer from "@/navigation/footer";
 import Header from "@/navigation/header";
 import React from "react";
 
@@ -10,6 +11,7 @@ function layout({ children }: Props) {
     <main className="min-h-screen w-full flex flex-col items-center justify-center bg-white">
       <Header />
       {children}
+      <Footer />
     </main>
   );
 }

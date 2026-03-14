@@ -3,11 +3,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --footer-link-color: #f7844a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-footer-link: var(--footer-link-color);
   --font-sans: var(--font-montserrat);
   --font-mono: var(--font-geist-mono);
 }
