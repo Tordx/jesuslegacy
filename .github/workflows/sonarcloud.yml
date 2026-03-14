@@ -63,4 +63,4 @@ jobs:
               -Dsonar.test.inclusions=**/*.test.tsx,**/*.spec.tsx \
               -Dsonar.login=${SONAR_TOKEN}
           # When you need the analysis to take place in a directory other than the one from which it was launched, default is .
-          projectBaseDir: .
+          projectBaseDir: ./src
