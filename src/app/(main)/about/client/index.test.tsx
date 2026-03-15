@@ -1,13 +1,25 @@
+/*
+ * Jesus Legacy Church Project
+ * Copyright (c) 2026 Jesus Legacy Church.
+ *
+ * This work is created for the ministry and mission of Jesus Legacy Church.
+ * Redistribution, modification, or commercial use of any portion of this
+ * project without written permission from Jesus Legacy Church leadership
+ * is not permitted.
+ *
+ * All rights reserved.
+ */
+
 import { render, screen } from "@testing-library/react";
-import AboutClient from "./client";
-import { AboutSectionData } from "./index.types";
+import AboutClient from ".";
+import { AboutSectionData } from "../index.types";
 // Mock all child components to avoid full DOM complexity
-jest.mock("./client/sections/hero-section", () => ({
+jest.mock("./sections/hero-section", () => ({
   __esModule: true,
   default: () => <div data-testid="hero-section" />,
 }));
 
-jest.mock("./client/sections/who-we-are-section", () => ({
+jest.mock("./sections/who-we-are-section", () => ({
   __esModule: true,
   default: ({ data }: any) => (
     <div data-testid="who-we-are-section">{data?.length ?? 0}</div>
