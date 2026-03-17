@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /*
  * Jesus Legacy Church Project
  * Copyright (c) 2026 Jesus Legacy Church.
@@ -39,9 +40,9 @@ describe("AboutClient Component", () => {
       id: 0,
       title: "Mission",
       description: "Our mission is...",
-      image_src: "",
+      path: "",
     },
-    { id: 0, title: "Vision", description: "Our vision is...", image_src: "" },
+    { id: 0, title: "Vision", description: "Our vision is...", path: "" },
   ];
 
   it("renders all main sections", () => {

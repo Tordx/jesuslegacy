@@ -10,14 +10,15 @@
  * All rights reserved.
  */
 
-export interface AboutSectionData {
-  id: number;
-  path: string;
-  title: string;
-  description: string;
+import MinistriesServices from "@/app/services/ministries-services";
+import MinistriesClient from "./client";
+export const dynamic = "force-dynamic";
+
+async function Page() {
+  const data = await MinistriesServices.getAll();
+  const url = process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL;
+
+  return <MinistriesClient {...data} url={url!} />;
 }
 
-export type AboutProps = {
-  data: AboutSectionData[],
-  status: boolean;
-};
+export default Page;

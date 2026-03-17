@@ -52,7 +52,7 @@ const WhoWeAreSection = (props: Props) => {
                 className={`md:w-1/2 w-full flex  ${isEven ? "justify-start" : "justify-end"}`}
               >
                 <Image
-                  src={`${url}${section.image_src}`}
+                  src={`${url}${section.path}`}
                   alt={section.title}
                   width={600}
                   height={400}

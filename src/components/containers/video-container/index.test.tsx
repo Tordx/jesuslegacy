@@ -1,15 +1,24 @@
 /*
  * Jesus Legacy Church Project
  * Copyright (c) 2026 Jesus Legacy Church.
+ *
+ * This work is created for the ministry and mission of Jesus Legacy Church.
+ * Redistribution, modification, or commercial use of any portion of this
+ * project without written permission from Jesus Legacy Church leadership
+ * is not permitted.
+ *
+ * All rights reserved.
  */
 
 import { render, screen } from "@testing-library/react";
 import VideoContainer from ".";
+import { ClassAttributes, VideoHTMLAttributes } from "react";
+import { JSX } from "react/jsx-runtime";
 
 // Mock framer-motion
 jest.mock("framer-motion", () => ({
   motion: {
-    video: (props: any) => <video {...props} />,
+    video: (props: JSX.IntrinsicAttributes & ClassAttributes<HTMLVideoElement> & VideoHTMLAttributes<HTMLVideoElement>) => <video {...props} />,
   },
   useScroll: () => ({
     scrollYProgress: { onChange: jest.fn() },

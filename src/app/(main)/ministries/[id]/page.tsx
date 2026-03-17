@@ -10,18 +10,14 @@
  * All rights reserved.
  */
 
-const HamburgerIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="32px"
-      viewBox="0 -960 960 960"
-      width="32px"
-      fill="var(--color-primary)"
-    >
-      <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-    </svg>
-  );
-};
+import MinistriesServices from '@/app/services/ministries-services'
+import { redirect } from 'next/navigation'
 
-export default HamburgerIcon;
+
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+
+  const response = await MinistriesServices.getById(id)
+
+  return redirect(`/ministries/${id}/${response.data.slug}`)
+}

@@ -1,3 +1,7 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/display-name */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @next/next/no-img-element */
 /*
  * Jesus Legacy Church Project
  * Copyright (c) 2026 Jesus Legacy Church.
@@ -30,13 +34,13 @@ const mockData = [
     id: 0,
     title: "Our Mission",
     description: "To spread the Gospel and serve the community.",
-    image_src: "/mission.jpg",
+    path: "/mission.jpg",
   },
   {
     id: 1,
     title: "Our Vision",
     description: "To build a Christ-centered generation.",
-    image_src: "/vision.jpg",
+    path: "/vision.jpg",
   },
 ];
 
