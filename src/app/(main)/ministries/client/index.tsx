@@ -23,7 +23,6 @@ function MinistriesClient(props: MinistriesProp) {
   return (
     <BaseContainer>
       <AnimatedImageContainer imageSrc="/assets/banner.jpg">
-        <div className="absolute w-full h-screen z-10 inset-0 bg-black/50" />
         <div className="z-10 w-full max-w-7xl px-10">
           <div className="flex flex-col text-left text-white font-bold text-7xl mb-10">
             <span className="text-5xl">Welcome to</span>

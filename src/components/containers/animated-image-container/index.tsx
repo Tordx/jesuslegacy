@@ -14,12 +14,14 @@
 
 import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useRef } from "react";
+import BackgroundOverlay from "../background-overlay";
 
 type Props = {
   children: React.ReactNode;
   imageSrc: string;
   cover?: string;
   position?: string;
+  height?: string | number;
 };
 
 const AnimatedImageContainer = ({
@@ -27,6 +29,7 @@ const AnimatedImageContainer = ({
   imageSrc,
   cover,
   position,
+  height
 }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -47,8 +50,9 @@ const AnimatedImageContainer = ({
       <motion.img
         src={imageSrc}
         alt=""
-        className="fixed top-1/2 left-1/2 w-full h-[250%] max-w-none max-h-none -translate-x-1/2 -translate-y-1/2 object-cover"
+        className="fixed top-1/2 left-1/2 w-full max-w-none max-h-none -translate-x-1/2 -translate-y-1/2 object-cover"
         style={{
+          height: height ?? "250%",
           objectFit: (cover as React.CSSProperties["objectFit"]) ?? "cover",
           objectPosition:
             (position as React.CSSProperties["objectPosition"]) ?? "center",
@@ -61,6 +65,7 @@ const AnimatedImageContainer = ({
 
       {/* Children overlay */}
       <div className="relative z-10 flex w-full h-full justify-center items-center">
+        <BackgroundOverlay />
         {children}
       </div>
     </div>

@@ -3,6 +3,7 @@ import { MinistriesData } from "../../../index.types";
 import BaseContainer from "@/components/containers/base-container";
 import AnimatedImageContainer from "@/components/containers/animated-image-container";
 import Button from "@/components/buttons/button";
+import BackgroundOverlay from "@/components/containers/background-overlay";
 
 type Props = {
   data: MinistriesData;
@@ -14,7 +15,6 @@ const MinistriesSlugClient = (props: Props) => {
   return (
     <BaseContainer>
       <AnimatedImageContainer imageSrc={`${url}${data.path}`}>
-        <div className="absolute w-full h-screen z-10 inset-0 bg-black/50" />
         <div className="z-10 w-full max-w-7xl px-10">
           <div className="flex flex-col text-white">
             <span className="text-5xl font-semibold">{data.name}</span>

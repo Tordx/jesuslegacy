@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
  * useIsMobile hook
  * Returns true if the device is mobile (touchscreen or narrow width)
  */
-export function useIsMobile(breakpoint = 768) {
+export function useIsMobile(breakpoint = 1024) {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
