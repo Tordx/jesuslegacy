@@ -11,15 +11,16 @@
  */
 
 import MinistriesServices from '@/app/services/ministries-services'
+import MinistriesSlugClient from './client'
 
 async function MinistriesSlug({ params }: { params: Promise<{ id: string, slug: string }> }) {
   const { id, slug } = await params
 
-  const response = await MinistriesServices.getBySlug(id, slug)
+  const response = await MinistriesServices.getBySlug(id, slug);
+    const url = process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL;
+
   console.log(response)
-  return (
-    <div className=''>{response.data.description}</div>
-  )
+  return <MinistriesSlugClient data={response.data} url={url!} />
 }
 
 export default MinistriesSlug;

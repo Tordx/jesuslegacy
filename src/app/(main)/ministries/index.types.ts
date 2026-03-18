@@ -38,5 +38,4 @@ export type MinistriesIdProp = {
 export type MinistriesBySlugProp = {
   status: boolean;
   data: MinistriesData;
-  url: string;
 }

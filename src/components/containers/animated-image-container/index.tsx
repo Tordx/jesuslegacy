@@ -54,6 +54,9 @@ const AnimatedImageContainer = ({
             (position as React.CSSProperties["objectPosition"]) ?? "center",
           y,
         }}
+        onError={(e) => {
+          e.currentTarget.src = "/assets/fallback.jpg";
+        }}
       />
 
       {/* Children overlay */}

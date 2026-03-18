@@ -16,20 +16,36 @@ import BaseContainer from "@/components/containers/base-container";
 import Image from "next/image";
 import { MinistriesProp } from "../index.types";
 import { useRouter } from "next/navigation";
+import Button from "@/components/buttons/button";
 function MinistriesClient(props: MinistriesProp) {
   const { data, url } = props;
   const router = useRouter();
   return (
     <BaseContainer>
-      {/* HERO */}
-      <div className="relative w-full h-screen overflow-hidden">
-        <AnimatedImageContainer imageSrc="/assets/banner.jpg">
+      <AnimatedImageContainer imageSrc="/assets/banner.jpg">
+        <div className="absolute w-full h-screen z-10 inset-0 bg-black/50" />
+        <div className="z-10 w-full max-w-7xl px-10">
           <div className="flex flex-col text-left text-white font-bold text-7xl mb-10">
             <span className="text-5xl">Welcome to</span>
-            <span>Jesus Legacy Church</span>
+            <span>our Ministries</span>
           </div>
-        </AnimatedImageContainer>
-      </div>
+          <Button
+          onClick={() => {
+            const section = document.getElementById("ministries");
+            if (section) {
+              const yOffset = -80;
+              const y =
+                section.getBoundingClientRect().top +
+                window.pageYOffset +
+                yOffset;
+              window.scrollTo({ top: y, behavior: "smooth" });
+            }
+          }}
+        >
+          Learn more about our ministries
+        </Button>
+        </div>
+      </AnimatedImageContainer>
 
       {/* MINISTRIES SECTION */}
       <section
@@ -73,9 +89,12 @@ function MinistriesClient(props: MinistriesProp) {
 
               {/* Content */}
               <div className="absolute bottom-0 p-6 text-white flex flex-col gap-2">
-                <button 
-                  onClick={() => router.push(`ministries/${ministry.id}/${ministry.slug}`)}
-                  className="text-left text-2xl font-semibold hover:underline cursor-pointer">
+                <button
+                  onClick={() =>
+                    router.push(`ministries/${ministry.id}/${ministry.slug}`)
+                  }
+                  className="text-left text-2xl font-semibold hover:underline cursor-pointer"
+                >
                   {ministry.name}
                 </button>
                 {ministry.description && (

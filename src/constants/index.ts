@@ -50,8 +50,8 @@ export const nav_items: NavItems[] = [
   },
   {
     id: 6,
-    label: 'testimony',
-    path: '/testimony',
+    label: 'testimonies',
+    path: '/testimonies',
   },
 ]
 
