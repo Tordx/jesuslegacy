@@ -10,8 +10,13 @@
  * All rights reserved.
  */
 
-export interface NavItems {
-  id: number;
-  label: string;
-  path: string;
-}
+export const scrollToElement = (id: string, offset: number = -80) => {
+  if (typeof window === "undefined") return;
+  if (!id) return;
+
+  const section = document.getElementById(id);
+  if (section) {
+    const y = section.getBoundingClientRect().top + window.pageYOffset + offset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+};

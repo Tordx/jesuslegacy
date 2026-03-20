@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /*
  * Jesus Legacy Church Project
  * Copyright (c) 2026 Jesus Legacy Church.
@@ -10,6 +9,8 @@
  *
  * All rights reserved.
  */
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { render, screen } from "@testing-library/react";
 import HomeClient from "./client";

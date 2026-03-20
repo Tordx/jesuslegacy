@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable react/display-name */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @next/next/no-img-element */
 /*
  * Jesus Legacy Church Project
  * Copyright (c) 2026 Jesus Legacy Church.
@@ -13,6 +9,11 @@
  *
  * All rights reserved.
  */
+
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/display-name */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @next/next/no-img-element */
 
 import { render, screen } from "@testing-library/react";
 import WhoWeAreSection from "./who-we-are-section";

@@ -1,88 +1,205 @@
+/*
+ * Jesus Legacy Church Project
+ * Copyright (c) 2026 Jesus Legacy Church.
+ *
+ * This work is created for the ministry and mission of Jesus Legacy Church.
+ * Redistribution, modification, or commercial use of any portion of this
+ * project without written permission from Jesus Legacy Church leadership
+ * is not permitted.
+ *
+ * All rights reserved.
+ */
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import AnimatedImageContainer from "@/components/containers/animated-image-container";
+import { useEffect, useState } from "react";
+import { GiveData, GiveProp, WalletData } from "../index.types";
+import { GiveServices } from "@/app/services/give-services";
+
 import BaseContainer from "@/components/containers/base-container";
-import { useIsMobile } from "@/hooks/use-is-mobile";
-import Button from "@/components/buttons/button";
-import { useState } from "react";
+import HeroSection from "./sections/hero-section";
+import DonationInfo from "./sections/give-info";
+import WalletList from "./components/wallet-list";
+import WalletDetails from "./components/wallet-details";
+import GivingBanner from "./sections/giving-banner";
+import TabButton from "@/components/buttons/tab-button";
+import ChatButton from "@/components/buttons/chat-button";
 
-const donationTypes = [
-  { id: "giving", label: "Giving Box", content: "This is the Giving Box content." },
-  { id: "transport", label: "Transport Box", content: "This is the Transport Box content." },
-  { id: "kitchen", label: "Kitchen Box", content: "This is the Kitchen Box content." },
-  // add more donation types here if needed
-];
+const GiveClient = (props: GiveProp) => {
+  const { tabs, url } = props;
+  const [activeTab, setActiveTab] = useState<GiveData>(tabs[0]);
+  const [wallets, setWallets] = useState<WalletData[]>([]);
+  const [selectedWallet, setSelectedWallet] = useState<WalletData | null>(null);
+  const [chatOpen, setChatOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
 
-const GiveClient = () => {
-  const isMobile = useIsMobile();
-  const [activeTab, setActiveTab] = useState(donationTypes[0].id);
+  const handleSelectTab = async (a: GiveData) => {
+    const selectedTab = tabs.find((item) => item.id === a.id)!;
+    setActiveTab(selectedTab);
+    const response = await GiveServices.getWalletsById(a.id);
+    if (response.status) {
+      setWallets(response.data);
+      globalThis.window.history.pushState(null, "", `#${selectedTab.id}`);
+      const section = document.getElementById(String(selectedTab.id));
+      if (section) {
+        const yOffset = -80;
+        const y =
+          section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  };
+
+  const toggleTawk = () => {
+    const tawk = (window as any).Tawk_API;
+    if (tawk && typeof tawk.maximize === "function") {
+      tawk.maximize();
+      setChatOpen(true);
+    }
+  };
+
+  useEffect(() => {
+    const getWallets = async () => {
+      const response = await GiveServices.getWalletsById(Number(activeTab?.id));
+      if (response.status) {
+        setWallets(response.data);
+        setSelectedWallet(response.data[0]);
+      }
+    };
+    getWallets();
+  }, [activeTab]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+
+    const tabFromHash = tabs.find((t) => String(t.id) === hash);
+    if (!tabFromHash) return;
+
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setActiveTab(tabFromHash);
+
+    const scrollToSection = () => {
+      const section = document.getElementById(hash);
+      if (section) {
+        const yOffset = -80;
+        const y =
+          section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    };
+
+    // Use a short delay to ensure DOM updated
+    setTimeout(scrollToSection, 50);
+  }, [tabs]);
+
+  // Initialize Tawk script and callbacks
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    (window as any).Tawk_API = window.Tawk_API || {};
+    (window as any).Tawk_LoadStart = new Date();
+
+    (window as any).Tawk_API.onLoad = function () {
+      (window as any).Tawk_API.hideWidget();
+      const unread = (window as any).Tawk_API.getUnreadCount();
+      if (unread > 0) setUnreadCount(unread);
+    };
+
+    (window as any).Tawk_API.onChatMessageAgent = () =>
+      setUnreadCount((prev) => (prev > 0 ? prev : 1));
+    (window as any).Tawk_API.onChatMessageReceived = () => {
+      const unread = (window as any).Tawk_API.getUnreadCount();
+      setUnreadCount(unread > 0 ? unread : 1);
+    };
+    (window as any).Tawk_API.onChatMaximized = () => {
+      setChatOpen(true);
+      setUnreadCount(0);
+    };
+    (window as any).Tawk_API.onChatMinimized = () => {
+      setChatOpen(false);
+      (window as any).Tawk_API.hideWidget();
+    };
+
+    if (!document.getElementById("tawk-script")) {
+      const s1 = document.createElement("script");
+      s1.id = "tawk-script";
+      s1.async = true;
+      s1.src = "https://embed.tawk.to/69bc402f6b81021c34520db7/1jk3llemh";
+      s1.charset = "UTF-8";
+      s1.setAttribute("crossorigin", "*");
+      const s0 = document.getElementsByTagName("script")[0];
+      s0.parentNode?.insertBefore(s1, s0);
+    }
+  }, []);
 
   return (
     <BaseContainer>
-      <AnimatedImageContainer
-        position={isMobile ? "35% 100%" : "center"}
-        imageSrc={`/assets/give.jpg`}
-        height={"150%"}
-      >
-        <div className="z-10 w-full max-w-7xl px-10">
-          <div className="flex flex-col text-left text-white font-bold text-7xl mb-10">
-            <span className="text-5xl">xdfgkgks qp</span>
-            <span>aqerlg qwelf f</span>
-          </div>
-          <Button
-            onClick={() => {
-              const section = document.getElementById("give");
-              if (section) {
-                const yOffset = -80;
-                const y =
-                  section.getBoundingClientRect().top +
-                  window.pageYOffset +
-                  yOffset;
-                window.scrollTo({ top: y, behavior: "smooth" });
-              }
-            }}
-          >
-            asdktne qwe gfobks
-          </Button>
-        </div>
-      </AnimatedImageContainer>
-
+      <HeroSection
+        onGiveNowClick={() => {
+          const section = document.getElementById("give");
+          if (section) {
+            const yOffset = -80;
+            const y =
+              section.getBoundingClientRect().top +
+              window.pageYOffset +
+              yOffset;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }}
+      />
+      <DonationInfo />
       <section
         id="give"
         className="w-full px-6 md:px-20 py-24 bg-white flex flex-col items-center gap-16 z-30"
       >
-        {/* Section Header */}
-        <div className="text-xl md:text-4xl text-amber-600 font-bold text-start w-full">
-          xkgo qwegnb
-          <div className="text-start flex flex-col w-full">
-            <p className="text-neutral-600 text-lg">
-              odfgpoerjq iofjfvjvb pweklsvcb erignqwrl qwoejoqg vjnv dfofbjd cvicivjerlw wejwkr
-            </p>
+        <div className="text-xl md:text-4xl text-amber-600 font-bold w-full text-left">
+          Select Your Giving
+          <p className="text-neutral-600 text-lg mt-2">
+            Choose a ministry area and your preferred payment method to
+            contribute.
+          </p>
+        </div>
+
+        <div id={String(activeTab.id)} className="w-full h-0.5 bg-gray-200" />
+
+        <div className="flex flex-row gap-4 w-full p-6 rounded-lg ">
+          <div className="w-full relative">
+            <div className="flex flex-wrap gap-4 w-full">
+              {tabs.map((tab) => (
+                <TabButton
+                  key={tab.id}
+                  onClick={() => handleSelectTab(tab)}
+                  active={tab === activeTab}
+                >
+                  {tab.label}
+                </TabButton>
+              ))}
+            </div>
+
+            <WalletList
+              wallets={wallets}
+              selectedWallet={selectedWallet}
+              setSelectedWallet={setSelectedWallet}
+              url={url}
+            />
+          </div>
+
+          <div className="flex items-center justify-center w-full">
+            <WalletDetails selectedWallet={selectedWallet} url={url} />
           </div>
         </div>
-
-        {/* Tabs */}
-        <div className="w-full max-w-4xl flex gap-4 border-b border-neutral-200">
-          {donationTypes.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 font-semibold transition-colors duration-200 ${
-                activeTab === tab.id
-                  ? "border-b-4 border-amber-600 text-amber-600"
-                  : "text-neutral-600 hover:text-amber-500"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Active Tab Content */}
-        <div className="w-full max-w-4xl mt-8 p-6 border rounded-lg shadow-sm bg-gray-50 text-neutral-800">
-          {donationTypes.find((tab) => tab.id === activeTab)?.content}
-        </div>
       </section>
+
+      <GivingBanner />
+      <ChatButton
+        chatOpen={chatOpen}
+        toggleTawk={toggleTawk}
+        unreadCount={unreadCount}
+      />
     </BaseContainer>
   );
 };

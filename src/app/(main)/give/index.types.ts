@@ -10,15 +10,30 @@
  * All rights reserved.
  */
 
-export interface GiveData {
-  channel: string;
-  wallet_type: 'qr' | 'bank transfer' | 'mobile mumber'
+export interface WalletData {
+  name: string;
+  wallet_type: 'qr' | 'bank_transfer' | 'mobile_number';
   wallet_address: string;
+  qr_image: string;
+  bank_icon: string,
+  bank_slug_icon: string,
+}
 
+export type WalletsProp = {
+  data: WalletData[];
+  status: boolean;
+  ur: string;
+}
+
+export interface GiveData {
+
+  id: number;
+  label: string;
+  content: string;
 }
 
 export type GiveProp = {
   status: boolean;
-  data: GiveData[];
+  tabs: GiveData[];
   url: string;
 }

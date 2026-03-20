@@ -1,9 +1,19 @@
-import React from "react";
+/*
+ * Jesus Legacy Church Project
+ * Copyright (c) 2026 Jesus Legacy Church.
+ *
+ * This work is created for the ministry and mission of Jesus Legacy Church.
+ * Redistribution, modification, or commercial use of any portion of this
+ * project without written permission from Jesus Legacy Church leadership
+ * is not permitted.
+ *
+ * All rights reserved.
+ */
+
 import { MinistriesData } from "../../../index.types";
 import BaseContainer from "@/components/containers/base-container";
 import AnimatedImageContainer from "@/components/containers/animated-image-container";
 import Button from "@/components/buttons/button";
-import BackgroundOverlay from "@/components/containers/background-overlay";
 
 type Props = {
   data: MinistriesData;

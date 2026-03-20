@@ -10,12 +10,16 @@
  * All rights reserved.
  */
 
+import { GiveServices } from "@/app/services/give-services";
 import GiveClient from "./client";
 
 export const dynamic = "force-dynamic";
 
-function Page() {
-  return <GiveClient />;
+async function Page() {
+  const data = await GiveServices.getGive();
+    const url = process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL;
+
+  return <GiveClient {...data} url={url!} />;
 }
 
 export default Page;

@@ -19,14 +19,10 @@ export async function GET(
   const supabase = await createClient()
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
-  const slug = searchParams.get("slug");
-  console.log(id)
   const { data, error } = await supabase
-    .from('ministries')
-    .select(`*`)
-    .eq('id', id)
-    .eq('slug', slug)
-    .single()
+    .from('wallets')
+    .select('*')
+    .eq('give_id', id)
 
   if (error) {
     console.error('Supabase error:', error)
