@@ -84,7 +84,7 @@ function Page() {
                   <button
                     key={loc.name}
                     onClick={() => setSelectedMap(loc)}
-                    className={`h-16 cursor-pointer active:scale-100 hover:scale-102 flex items-center gap-3 p-3 rounded-md transition-all duration-150 ${
+                    className={`text-black h-16 cursor-pointer active:scale-100 hover:scale-102 flex items-center gap-3 p-3 rounded-md transition-all duration-150 ${
                       selectedMap.name === loc.name
                         ? "bg-amber-100 shadow-md font-bold"
                         : "hover:bg-gray-100 font-medium"

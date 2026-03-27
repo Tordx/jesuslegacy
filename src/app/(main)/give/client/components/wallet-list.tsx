@@ -31,7 +31,7 @@ const WalletList = ({ wallets, selectedWallet, setSelectedWallet, url }: WalletL
           <button
             key={wallet.wallet_address}
             onClick={() => setSelectedWallet(wallet)}
-            className={`cursor-pointer active:scale-100 hover:scale-102 flex items-center gap-3 p-3 rounded-md transition-all duration-150 ${
+            className={`text-black cursor-pointer active:scale-100 hover:scale-102 flex items-center gap-3 p-3 rounded-md transition-all duration-150 ${
               isActive ? "bg-amber-100 shadow-md font-bold" : "hover:bg-gray-100 font-medium"
             }`}
           >
