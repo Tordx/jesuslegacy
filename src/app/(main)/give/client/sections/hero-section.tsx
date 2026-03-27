@@ -13,8 +13,8 @@
 "use client";
 
 import AnimatedImageContainer from "@/components/containers/animated-image-container";
-import Button from "@/components/buttons/button";
 import { useIsMobile } from "@/hooks/use-is-mobile";
+import HeroButton from "@/components/buttons/hero-button";
 
 interface HeroSectionProps {
   onGiveNowClick: () => void;
@@ -34,7 +34,7 @@ const HeroSection = ({ onGiveNowClick }: HeroSectionProps) => {
           <span className="text-5xl">Be part of God’s work.</span>
           <span className="">Give in Faith</span>
         </div>
-        <Button onClick={onGiveNowClick}>Give Now</Button>
+        <HeroButton onClick={onGiveNowClick} label="Learn how you can Give"/>
       </div>
     </AnimatedImageContainer>
   );

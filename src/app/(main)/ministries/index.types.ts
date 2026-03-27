@@ -19,6 +19,7 @@ export interface MinistriesData {
   updated_at: string;
   is_active: boolean;
   path: string;
+  correct_slug?: string;
 }
 
 export type MinistriesProp = {
@@ -38,4 +39,6 @@ export type MinistriesIdProp = {
 export type MinistriesBySlugProp = {
   status: boolean;
   data: MinistriesData;
+  redirect: boolean;
+  correct_slug?: string;
 }

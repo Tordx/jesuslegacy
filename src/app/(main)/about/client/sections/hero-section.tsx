@@ -10,7 +10,7 @@
  * All rights reserved.
  */
 
-import Button from "@/components/buttons/button";
+import HeroButton from "@/components/buttons/hero-button";
 import VideoContainer from "@/components/containers/video-container";
 
 const HeroSection = () => {
@@ -26,7 +26,7 @@ const HeroSection = () => {
           <span className="text-5xl">Welcome to</span>
           <span>Jesus Legacy Church</span>
         </div>
-        <Button
+        <HeroButton
           onClick={() => {
             const section = document.getElementById("what-we-do");
             if (section) {
@@ -38,9 +38,8 @@ const HeroSection = () => {
               window.scrollTo({ top: y, behavior: "smooth" });
             }
           }}
-        >
-          Learn more about us
-        </Button>
+          label="Learn more about us"
+        />
       </div>
     </VideoContainer>
   );

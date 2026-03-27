@@ -154,7 +154,7 @@ const GiveClient = (props: GiveProp) => {
       <DonationInfo />
       <section
         id="give"
-        className="w-full px-6 md:px-20 py-24 bg-white flex flex-col items-center gap-16 z-30"
+        className="w-full px-6 md:px-20 py-20 bg-white flex flex-col items-center gap-16 z-30"
       >
         <div className="text-xl md:text-4xl text-amber-600 font-bold w-full text-left">
           Select Your Giving

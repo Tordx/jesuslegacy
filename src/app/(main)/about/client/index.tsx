@@ -27,7 +27,6 @@ function AboutClient(props: Readonly<AboutProps>) {
         <HeroSection />
         <div className="h-screen"></div>
       </div>
-      {/* Alternating sections */}
       <WhoWeAreSection data={data}  url={url} />
     </BaseContainer>
   );

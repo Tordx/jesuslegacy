@@ -13,12 +13,15 @@
 'use client'
 import HeroButton from '@/components/buttons/hero-button'
 
+type Props = {
+  onClick(e: string): void
+}
 
-const HeroSection = () => {
+const HeroSection = ({onClick}: Props) => {
   return (
     <section className='hidden md:flex w-full h-full items-center justify-between max-w-4/5'>
-        <HeroButton  onClick={() => {}} label="our purpose"/>
-        <HeroButton  onClick={() => {}} label="our locations"/>
+        <HeroButton animated onClick={() => onClick('purpose')} label="our purpose"/>
+        <HeroButton animated onClick={() => onClick('where-we-are')} label="our locations"/>
     </section>
   )
 }

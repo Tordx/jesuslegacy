@@ -10,14 +10,20 @@
  * All rights reserved.
  */
 
-import MinistriesServices from '@/app/services/ministries-services'
-import { redirect } from 'next/navigation'
+import MinistriesServices from "@/app/services/ministries-services";
+import { notFound, redirect } from "next/navigation";
 
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const response = await MinistriesServices.getById(id);
 
-export default async function Page({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
+  if (!response || !response.data) {
+    notFound();
+  }
 
-  const response = await MinistriesServices.getById(id)
-
-  return redirect(`/ministries/${id}/${response.data.slug}`)
+  return redirect(`/ministries/${id}/${response.data.slug}`);
 }

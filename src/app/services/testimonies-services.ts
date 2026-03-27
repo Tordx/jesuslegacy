@@ -11,27 +11,27 @@
  */
 
 import api from "@/axios";
-import { MinistriesBySlugProp, MinistriesIdProp, MinistriesProp } from "../(main)/ministries/index.types";
+import { TestimoniesBySlugProp, TestimoniesIdProp, TestimoniesProp } from "../(main)/testimonies/index.types";
 
-export default class MinistriesServices {
+export default class TestimoniesServices {
   static async getAll() {
-    const response = await api.get('/ministries', {
+    const response = await api.get('/testimonies', {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     })
 
-    return response.data as MinistriesProp;
+    return response.data as TestimoniesProp;
   }
 
   static async getById(id: string) {
     try {
-      const response = await api.get(`/ministries/getById`, {
+      const response = await api.get(`/testimonies/getById`, {
         params: { id }
       });
 
-      return response.data as MinistriesIdProp;
+      return response.data as TestimoniesIdProp;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       if (error?.response?.status === 404) {
         return null;
@@ -42,7 +42,7 @@ export default class MinistriesServices {
   }
 
   static async getBySlug(id: string, slug: string) {
-    const response = await api.get(`/ministries/getBySlug`, {
+    const response = await api.get(`/testimonies/getBySlug`, {
       params: {
         id,
         slug
@@ -51,6 +51,6 @@ export default class MinistriesServices {
     if (response.status) {
       console.log(response.status)
     }
-    return response.data as MinistriesBySlugProp;
+    return response.data as TestimoniesBySlugProp;
   }
 }

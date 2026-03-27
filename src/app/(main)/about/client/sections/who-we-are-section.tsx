@@ -24,7 +24,7 @@ const WhoWeAreSection = (props: Props) => {
   return (
   <div
         id="what-we-do"
-        className="w-full px-4 md:px-20 mx-auto py-20 flex flex-col gap-20 justify-center items-center bg-white z-10"
+        className="w-full px-4 md:px-20 mx-auto py-20 flex flex-col gap-20 justify-center items-center bg-white z-10 overflow-y-hidden"
       >
         <motion.div
           initial={{ y: 150, opacity: 0 }}

@@ -10,19 +10,14 @@
  * All rights reserved.
  */
 
-type Props = {
-  label: string;
-  onClick(): void;
-  className: string;
-}
+import TestimoniesServices from '@/app/services/testimonies-services'
+import { redirect } from 'next/navigation'
 
-const NavButton = (props: Props) => {
-  const { label, onClick, className} = props;
-  return (
-    <button className={`${className} hover:scale-105 font-semibold cursor-pointer`} onClick={onClick}>
-      {label}
-    </button>
-  )
-}
 
-export default NavButton
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+
+  const response = await TestimoniesServices.getById(id)
+
+  return redirect(`/ministries/${id}/${response?.data.slug}`)
+}

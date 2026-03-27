@@ -19,7 +19,6 @@ export async function GET(
   const supabase = await createClient()
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
-  console.log(id)
   const { data, error } = await supabase
     .from('ministries')
     .select(`slug`)
@@ -27,8 +26,7 @@ export async function GET(
     .single()
 
   if (error) {
-    console.error('Supabase error:', error)
-    return NextResponse.json({status: false, error: error.message }, { status: 500 })
+    return NextResponse.json({status: false, error: error.message }, { status: 404 })
   }
 
   if (!data) return NextResponse.json(null);

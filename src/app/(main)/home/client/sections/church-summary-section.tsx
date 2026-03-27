@@ -12,7 +12,6 @@
 "use client";
 import { images } from "@/constants";
 import Image from "next/image";
-import React from "react";
 import { motion } from "framer-motion";
 
 const ChurchSummarySection = () => {

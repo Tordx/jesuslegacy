@@ -15,13 +15,14 @@ import React from "react";
 type Props = {
   label: string;
   onClick(): void;
+  animated?: boolean;
 };
 
 const HeroButton = (props: Props) => {
-  const { label, onClick } = props;
+  const { label, onClick, animated } = props;
   return (
     <button
-      className="border-3 border-white px-4 py-2 text-white font-semibold text-xl uppercase duration-750 animate-pulse cursor-pointer hover:animate-none hover:scale-102 active:scale-100"
+      className={`border-3 border-white px-4 py-2 text-white font-semibold text-xl uppercase cursor-pointer hover:animate-none hover:scale-102 active:scale-100 ${animated ? "duration-750 animate-pulse" : ""}`}
       onClick={onClick}
     >
       {label}

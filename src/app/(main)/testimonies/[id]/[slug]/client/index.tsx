@@ -12,32 +12,22 @@
 
 "use client";
 
-import { MinistriesData } from "../../../index.types";
 import BaseContainer from "@/components/containers/base-container";
 import AnimatedImageContainer from "@/components/containers/animated-image-container";
 import Button from "@/components/buttons/button";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { TestimonyData } from "../../../index.types";
 
 type Props = {
-  data: MinistriesData;
+  data: TestimonyData;
   url: string;
-  slug?: string;
 };
 
-const MinistriesSlugClient = (props: Props) => {
-  const { data, url, slug } = props;
-  const router = useRouter();
-
-  useEffect(() => {
-    if (slug) {
-      router.push(slug);
-    }
-  }, [slug, router]);
-
+const TestimoniesSlugClient = (props: Props) => {
+  const { data, url } = props;
+  console.log(data)
   return (
     <BaseContainer>
-      <AnimatedImageContainer imageSrc={`${url}${data.path}`}>
+      <AnimatedImageContainer imageSrc={`${url}${data.image_slug}`}>
         <div className="z-10 w-full max-w-7xl px-10">
           <div className="flex flex-col text-white">
             <span className="text-5xl font-semibold">{data.name}</span>
@@ -50,4 +40,4 @@ const MinistriesSlugClient = (props: Props) => {
   );
 };
 
-export default MinistriesSlugClient;
+export default TestimoniesSlugClient;

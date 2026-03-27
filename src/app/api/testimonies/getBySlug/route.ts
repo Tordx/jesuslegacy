@@ -27,11 +27,10 @@ export async function GET(req: Request) {
     );
   }
 
-  // ✅ Fetch ONLY by id
   const { data, error } = await supabase
-    .from('ministries')
+    .from('testimony_data')
     .select(`*`)
-    .eq('id', id)
+    .eq('testimony_id', id)
     .single();
 
   if (error) {

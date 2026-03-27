@@ -16,7 +16,7 @@ import BaseContainer from "@/components/containers/base-container";
 import Image from "next/image";
 import { MinistriesProp } from "../index.types";
 import { useRouter } from "next/navigation";
-import Button from "@/components/buttons/button";
+import HeroButton from "@/components/buttons/hero-button";
 function MinistriesClient(props: MinistriesProp) {
   const { data, url } = props;
   const router = useRouter();
@@ -28,7 +28,7 @@ function MinistriesClient(props: MinistriesProp) {
             <span className="text-5xl">Welcome to</span>
             <span>our Ministries</span>
           </div>
-          <Button
+          <HeroButton
           onClick={() => {
             const section = document.getElementById("ministries");
             if (section) {
@@ -40,16 +40,15 @@ function MinistriesClient(props: MinistriesProp) {
               window.scrollTo({ top: y, behavior: "smooth" });
             }
           }}
-        >
-          Learn more about our ministries
-        </Button>
+          label="Learn more about our ministries"
+        />
         </div>
       </AnimatedImageContainer>
 
       {/* MINISTRIES SECTION */}
       <section
         id="ministries"
-        className="w-full px-6 md:px-20 py-24 bg-white flex flex-col items-center gap-16 z-30"
+        className="w-full px-6 md:px-20 py-20 bg-white flex flex-col items-center gap-16 z-30"
       >
         {/* Section Header */}
         <div className="text-xl md:text-4xl text-amber-600 font-bold text-start w-full">

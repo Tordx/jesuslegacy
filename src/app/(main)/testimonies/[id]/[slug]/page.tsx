@@ -10,15 +10,17 @@
  * All rights reserved.
  */
 
-import MinistriesServices from '@/app/services/ministries-services'
 import MinistriesSlugClient from './client'
+import TestimoniesServices from '@/app/services/testimonies-services';
 
 async function MinistriesSlug({ params }: { params: Promise<{ id: string, slug: string }> }) {
-  const { id, slug } = await params;
+  const { id, slug } = await params
 
-  const response = await MinistriesServices.getBySlug(id, slug);
+  const response = await TestimoniesServices.getBySlug(id, slug);
   const url = process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL;
-  return <MinistriesSlugClient slug={response.correct_slug} data={response.data} url={url!} />
+
+  console.log(response)
+  return <MinistriesSlugClient data={response.data} url={url!} />
 }
 
 export default MinistriesSlug;

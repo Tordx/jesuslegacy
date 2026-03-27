@@ -18,16 +18,24 @@ import ChurchSummarySection from "./sections/church-summary-section";
 import GallerySection from "./sections/gallery-section";
 import { GetGalleryData } from "../index.types";
 import BannerSection from "./sections/banner-section";
+import { useRouter } from "next/navigation";
 
 type Props = {
   data: GetGalleryData[];
 };
 
 function HomeClient({ data }: Readonly<Props>) {
+
+  const router = useRouter();
+
+  const handleHeroButtons = (e: string) => {
+    router.push(`/${e}`)
+  }
+
   return (
     <BaseContainer>
       <ImageContainer backgroundImage="url('assets/cover.jpg')">
-        <HeroSection />
+        <HeroSection onClick={handleHeroButtons} />
       </ImageContainer>
       <ChurchSummarySection />
       <GallerySection images={data} />

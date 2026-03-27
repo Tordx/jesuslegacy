@@ -14,8 +14,17 @@
 
 import { render, screen } from "@testing-library/react";
 import HomeClient from "./client";
+import { useRouter } from "next/navigation";
 
-// Mock all child components to simplify test
+jest.mock("next/navigation");
+
+const mockedUseRouter = useRouter as jest.MockedFunction<typeof useRouter>;
+
+mockedUseRouter.mockReturnValue({
+  push: jest.fn(),
+  replace: jest.fn(),
+  refresh: jest.fn(),
+} as any);
 jest.mock("./client/sections/hero-section", () => ({
   __esModule: true,
   default: () => <div data-testid="hero-section" />,

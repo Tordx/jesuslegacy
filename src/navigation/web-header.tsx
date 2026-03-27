@@ -25,7 +25,7 @@ function WebHeader(props: Readonly<Props>) {
   const { menu } = props;
   const [isScrolled, setIsScrolled] = React.useState(false);
   const controls = useAnimation();
-  const pathname = usePathname(); // get current route
+  const pathname = usePathname();
 
   React.useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -36,10 +36,14 @@ function WebHeader(props: Readonly<Props>) {
   React.useEffect(() => {
     controls.start({
       backdropFilter: isScrolled ? "blur(16px)" : "",
-      backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0)",
+      backgroundColor: isScrolled
+        ? !menu.find((item) => pathname.startsWith(item.path))
+          ? "rgba(255, 255, 255, 0.3)"
+          : "rgba(0, 0, 0, 0.3)"
+        : "rgba(0, 0, 0, 0)",
       transition: { duration: 0.6, ease: "easeOut" },
     });
-  }, [isScrolled, controls]);
+  }, [isScrolled, controls, pathname, menu]);
 
   return (
     <motion.header className="fixed top-0 w-full h-20 z-50" animate={controls}>
@@ -56,6 +60,7 @@ function WebHeader(props: Readonly<Props>) {
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 <NavButton
+                  className={`${!menu.find((item) => pathname.startsWith(item.path)) ? "text-black" : "text-white"}`}
                   label={item.label}
                   onClick={() => redirect(item.path)}
                 />
@@ -64,6 +69,7 @@ function WebHeader(props: Readonly<Props>) {
           }
           return (
             <NavButton
+              className={`${!menu.find((item) => pathname.startsWith(item.path)) ? "text-black" : "text-white"}`}
               key={item.id}
               label={item.label}
               onClick={() => redirect(item.path)}
