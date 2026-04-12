@@ -18,6 +18,6 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   const { id } = await params
 
   const response = await TestimoniesServices.getById(id)
-
-  return redirect(`/ministries/${id}/${response?.data.slug}`)
+  console.log(response)
+  return redirect(`/testimonies/${id}/${response?.data.slug}`)
 }

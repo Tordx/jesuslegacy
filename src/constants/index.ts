@@ -41,7 +41,7 @@ export const nav_items: NavItems[] = [
   {
     id: 4,
     label: 'activities',
-    path: 'activities'
+    path: '/activities'
   },
   {
     id: 5,

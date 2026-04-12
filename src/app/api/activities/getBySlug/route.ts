@@ -27,14 +27,12 @@ export async function GET(req: Request) {
     );
   }
 
+  // ✅ Fetch ONLY by id
   const { data, error } = await supabase
-    .from('testimonies')
-    .select(`
-        slug,
-        testimony_data!fk_testimony (*)
-      `)
+    .from('activities')
+    .select(`*`)
     .eq('id', id)
-    .single()
+    .single();
 
   if (error) {
     console.error('Supabase error:', error);
@@ -54,7 +52,7 @@ export async function GET(req: Request) {
         status: true,
         redirect: true,
         correct_slug: data.slug,
-        data: data.testimony_data[0],
+        data,
       },
       { status: 200 }
     );
@@ -62,7 +60,7 @@ export async function GET(req: Request) {
 
   // ✅ Normal case
   return NextResponse.json(
-    { status: true, data: data.testimony_data[0], },
+    { status: true, data },
     { status: 200 }
   );
 }

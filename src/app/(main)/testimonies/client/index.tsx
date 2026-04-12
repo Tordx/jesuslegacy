@@ -95,7 +95,7 @@ function TestimoniesClient(props: TestimoniesProp) {
       </AnimatedImageContainer>
       <section className="w-full py-16 px-6 flex justify-center max-h-75 z-30 bg-white">
         <motion.div
-          className="flex flex-col gap-4 text-center md:text-center w-full md:leading-12 text-lg md:text-3xl font-medium"
+          className="text-black flex flex-col gap-4 text-center md:text-center w-full md:leading-12 text-lg md:text-3xl font-medium"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}

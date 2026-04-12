@@ -56,4 +56,6 @@ export type TestimoniesIdProp = {
 export type TestimoniesBySlugProp = {
   status: boolean;
   data: TestimonyData;
+  correct_slug: string;
+  redirect: boolean;
 }

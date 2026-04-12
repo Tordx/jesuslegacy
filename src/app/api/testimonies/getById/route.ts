@@ -24,12 +24,15 @@ export async function GET(req: Request) {
 
   try {
     const { data, error } = await supabase
-      .from('testimony_data')
-      .select(`*,
-        testimonies!fk_testimony (slug)`
-      )
-      .eq('testimony_id', id);
+      .from('testimonies')
+      .select(`
+        *,
+        testimony_data!fk_testimony (*)   -- get all related testimony_data
+      `)
+      .eq('id', id)
+      .single()
 
+    console.log(data)
     if (error) {
       console.error('Supabase error:', error);
       return NextResponse.json({ status: false, error: error.message }, { status: 500 });

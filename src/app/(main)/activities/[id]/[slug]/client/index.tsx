@@ -12,20 +12,19 @@
 
 "use client";
 
-import { MinistriesData } from "../../../index.types";
+import { ActivitiesData } from "../../../index.types";
 import BaseContainer from "@/components/containers/base-container";
 import AnimatedImageContainer from "@/components/containers/animated-image-container";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import HeroButton from "@/components/buttons/hero-button";
 
 type Props = {
-  data: MinistriesData;
+  data: ActivitiesData;
   url: string;
   slug?: string;
 };
 
-const MinistriesSlugClient = (props: Props) => {
+const ActivitiesSlugClient = (props: Props) => {
   const { data, url, slug } = props;
   const router = useRouter();
 
@@ -40,14 +39,12 @@ const MinistriesSlugClient = (props: Props) => {
       <AnimatedImageContainer imageSrc={`${url}${data.path}`}>
         <div className="z-10 w-full max-w-7xl px-10">
           <div className="flex flex-col text-white mb-10">
-            <span className="text-5xl font-semibold">{data.name}</span>
             <span className="text-2xl font-medium">{data.description}</span>
           </div>
-          <HeroButton label={`Join ${data.name}`} onClick={() => {}} />
         </div>
       </AnimatedImageContainer>
     </BaseContainer>
   );
 };
 
-export default MinistriesSlugClient;
+export default ActivitiesSlugClient;
