@@ -51,7 +51,7 @@ function ActivitiesClient(props: ActivitiesProp) {
         className="w-full px-6 md:px-20 p-10 bg-neutral-950 flex flex-col items-center gap-10 z-30"
       >
         {/* Section Header */}
-        <div className="text-xl md:text-4xl text-amber-600 font-bold text-start w-full uppercase">
+        <div className="text-xl md:text-4xl text-amber-100 font-bold text-start w-full uppercase">
           Activities
           <div className="text-start flex flex-col w-full"></div>
         </div>
