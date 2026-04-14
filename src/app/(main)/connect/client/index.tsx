@@ -24,7 +24,6 @@ import { ConnectFormData, FormTypes } from "../index.types";
 import ConnectForm from "./components/connect-form";
 
 const ConnectClient = () => {
-
   const [form, setForm] = useState<ConnectFormData>({
     name: "",
     email: "",
@@ -51,9 +50,9 @@ const ConnectClient = () => {
 
     const typeFromHash = form.type === hash;
     if (!typeFromHash) return;
-  const TypesData: FormTypes[] = ["prayer", "volunteer", "general", null];
+    const TypesData: FormTypes[] = ["prayer", "volunteer", "general", null];
     const hashData = TypesData.find((t) => t === hash);
-    if(hashData === undefined) return;
+    if (hashData === undefined) return;
 
     setForm({ ...form, type: hashData });
 
@@ -69,7 +68,7 @@ const ConnectClient = () => {
 
     // Use a short delay to ensure DOM updated
     setTimeout(scrollToSection, 50);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Initialize Tawk script and callbacks
@@ -133,17 +132,18 @@ const ConnectClient = () => {
         className="w-full px-6 md:px-20 py-20 bg-white flex flex-col items-center gap-16 z-30"
       >
         <div className="text-xl md:text-4xl text-amber-600 font-bold w-full text-left">
-          Select Your Giving
+          Connect with Us
           <p className="text-neutral-600 text-lg mt-2">
-            Choose a ministry area and your preferred payment method to
-            contribute.
+            let us know how we can support you or your family. Whether you want
+            to request prayer, volunteer, or just have a general inquiry, we&apos;re
+            here to listen and help in any way we can.
           </p>
         </div>
 
         <div className="w-full h-0.5 bg-gray-200" />
-          <div className="flex items-center justify-center w-full">
-            <ConnectForm form={form} setForm={setForm} />
-          </div>
+        <div className="flex items-center justify-center w-full">
+          <ConnectForm form={form} setForm={setForm} />
+        </div>
       </section>
 
       <GivingBanner />

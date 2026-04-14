@@ -26,7 +26,7 @@ export default class ActivitiesServices {
 
   static async getById(id: string) {
     try {
-      const response = await api.get(`/Activities/getById`, {
+      const response = await api.get(`/activities/getById`, {
         params: { id }
       });
 
@@ -43,7 +43,7 @@ export default class ActivitiesServices {
   }
 
   static async getBySlug(id: string, slug: string) {
-    const response = await api.get(`/Activities/getBySlug`, {
+    const response = await api.get(`/activities/getBySlug`, {
       params: {
         id,
         slug

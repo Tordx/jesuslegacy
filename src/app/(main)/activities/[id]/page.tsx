@@ -25,5 +25,5 @@ export default async function Page({
     notFound();
   }
 
-  return redirect(`/Activities/${id}/${response.data.slug}`);
+  return redirect(`/activities/${id}/${response.data.slug}`);
 }

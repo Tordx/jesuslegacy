@@ -58,7 +58,6 @@ export async function GET(req: Request) {
     );
   }
 
-  // ✅ Normal case
   return NextResponse.json(
     { status: true, data },
     { status: 200 }

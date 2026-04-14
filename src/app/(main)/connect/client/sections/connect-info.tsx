@@ -14,8 +14,7 @@ const DonationInfo = () => {
   return (
     <section className="w-full p-6 flex justify-center z-30 bg-black">
       <span className="text-white text-sm">
-        Your giving matters to us. We follow government guidelines and payment
-        regulations to ensure all donations are safe, secure, and properly handled.
+        Leave a message, ask a question, or share your story with us. you may send anonymously or provide your contact information.
       </span>
     </section>
   );

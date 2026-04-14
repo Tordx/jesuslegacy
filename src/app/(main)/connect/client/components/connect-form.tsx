@@ -9,6 +9,7 @@
  *
  * All rights reserved.
  */
+
 "use client";
 
 import { ConnectFormData } from "../../index.types";
@@ -33,71 +34,79 @@ const ConnectForm = ({ form, setForm }: ConnectFormProps) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md flex flex-col gap-6 justify-center items-center m-2 p-10 w-[90%] max-w-xl">
-      {/* Select Type */}
-      <select
-        name="type"
-        value={form.type || ""}
-        onChange={handleChange}
-        className="w-full p-3 border rounded-md"
-      >
-        <option disabled value="general">Select a type</option>
-        {types.map((type) => {
-          if(type === null) return;
-          return <option value={type} key={type} label={type} className="capitalize"/>
-        })}
-      </select>
+    <div className="min-h-1/2 w-full">
+  
 
-      {/* Name */}
-      <input
-        type="text"
-        name="name"
-        placeholder="Your Name (optional)"
-        value={form.name}
-        onChange={handleChange}
-        className="w-full p-3 border rounded-md"
-      />
+      {/* RIGHT: Form */}
+      <div className="w-full bg-white rounded-xl shadow-lg p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Row 1 */}
+          <select
+            name="type"
+            value={form.type || ""}
+            onChange={handleChange}
+            className="p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-amber-500"
+          >
+            <option disabled value="">
+              Select a type
+            </option>
+            {types.map((type) => (
+              <option key={type} value={type} className="capitalize">
+                {type}
+              </option>
+            ))}
+          </select>
 
-      {/* Email */}
-      <input
-        type="email"
-        name="email"
-        placeholder="Your Email (optional)"
-        value={form.email}
-        onChange={handleChange}
-        className="w-full p-3 border rounded-md"
-      />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name (optional)"
+            value={form.name}
+            onChange={handleChange}
+            className="p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-amber-500"
+          />
 
-      {/* Contact Number */}
-      <input
-        type="text"
-        name="contact_number"
-        placeholder="Contact Number"
-        value={form.contact_number}
-        onChange={handleChange}
-        required
-        className="w-full p-3 border rounded-md"
-      />
+          {/* Row 2 */}
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email (optional)"
+            value={form.email}
+            onChange={handleChange}
+            className="p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-amber-500"
+          />
 
-      {/* Message */}
-      <textarea
-        name="message"
-        placeholder="Your Message (optional)"
-        value={form.message}
-        onChange={handleChange}
-        rows={4}
-        className="w-full p-3 border rounded-md"
-      />
+          <input
+            type="text"
+            name="contact_number"
+            placeholder="Contact Number"
+            value={form.contact_number}
+            onChange={handleChange}
+            required
+            className="p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-amber-500"
+          />
 
-      {/* Submit */}
-      <button
-        className="w-full bg-amber-600 text-white py-3 rounded-md hover:bg-amber-700 transition"
-        onClick={() => {
-          console.log(form);
-        }}
-      >
-        Submit
-      </button>
+          {/* Row 3 - full width */}
+          <textarea
+            name="message"
+            placeholder="Your Message (optional)"
+            value={form.message}
+            onChange={handleChange}
+            rows={4}
+            className="md:col-span-2 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-amber-500"
+          />
+
+          {/* Row 4 - full width */}
+          <button
+            className="md:col-span-2 bg-amber-600 text-white py-3 rounded-md hover:bg-amber-700 transition font-semibold"
+            onClick={() => {
+              console.log(form);
+            }}
+          >
+            Submit
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
