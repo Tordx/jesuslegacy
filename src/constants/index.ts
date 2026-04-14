@@ -85,8 +85,8 @@ export const footer_elements = {
     {
       header: 'About',
       links: [
-        { label: 'Who we are', path: '/ministries/youth' },
-        { label: 'What we do', path: '/ministries/music' },
+        { label: 'Who we are', path: '/purpose' },
+        { label: 'What we do', path: '/about' },
         { label: 'Our Vision', path: '/ministries/outreach' },
         { label: 'Our Mission', path: '/ministries/outreach' },
       ],
@@ -94,17 +94,17 @@ export const footer_elements = {
     {
       header: 'Join us',
       links: [
-        { label: 'Find our Churches', path: '/ministries/youth' },
-        { label: 'Join a Ministry', path: '/ministries/music' },
-        { label: 'Give', path: '/ministries/outreach' },
+        { label: 'Find our Churches', path: '/where-we-are' },
+        { label: 'Join a Ministry', path: '/ministries' },
+        { label: 'Give', path: '/give' },
       ],
     },
     {
       header: 'Ministries',
       links: [
-        { label: 'Youth Ministry', path: '/ministries/youth' },
-        { label: 'Music Ministry', path: '/ministries/music' },
-        { label: 'Outreach', path: '/ministries/outreach' },
+        { label: 'Youth Ministry', path: '/ministries/9ae47b16-263b-4ef2-99f2-d445e332c10e/youth-ministry' },
+        { label: 'Music Ministry', path: '/ministries/e23f772a-bbf1-4019-9a1d-8fa0b5d199a9/music-worship-ministry' },
+        { label: 'Outreach', path: '//ministries/56cda3cb-7583-483a-8956-9fa62ad402d6/church-operations-ministry' },
       ],
     },
 
